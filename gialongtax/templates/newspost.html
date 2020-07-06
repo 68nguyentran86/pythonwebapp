@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="{{url_for('static', filename='imgs/favicon.ico')}}" type="image/x-icon">
+    <title>GiaLongTax</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/styles.min.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+
+<body>
+    <!-- Start: News Post -->
+    <div class="contact-clean">
+        <div class="heading">
+            <h1 class="text-center text-primary"><strong>Đăng tin mới</strong></h1>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for category, message in get_flashed_messages(with_categories=True) %}
+                        <div class="alert-{{category}}">{{ message }}</div>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block body %}{% endblock %}
+        <form method="post" action="/newspost" enctype=multipart/form-data>
+            
+            <div class="form-group"><select class="form-control" required=""><optgroup label="Thể loại"><option value="1" selected="">Tin tức</option><option value="2">Dịc vụ</option><option value="3">Khách hàng</option></optgroup></select></div>
+            <div class="form-group"><input class="form-control" type="text" name="title" required="" placeholder="Tiêu đề" maxlength="100" minlength="4"></div>
+            <div class="form-group"><textarea class="form-control" rows="20" name="contents" required="" placeholder="Nội dung" minlength="10"></textarea></div>
+            <div class="form-group"><input type="file" accept="image/*" name="imagefile" required=""></div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+            </div>            
+            <div class="form-group text-center"><button class="btn btn-primary" type="submit" name="News Post">Đăng Bài</button></div>
+        </form>
+    </div>
+    <!-- End: News Post -->
+    <!-- Start: Footer Basic -->
+    <div class="footer-basic">
+        <footer>
+            <!-- Start: Social Icons -->
+            <div class="social"><a href="https://www.facebook.com/ketoanthuegialong"><i class="icon ion-social-facebook"
+                        style="color: rgb(0,128,255);"></i></a><a href="https://gialongtax.business.site/"><i
+                        class="icon ion-social-google" style="color: rgb(0,128,255);"></i></a>
+                <a href="#"><i class="icon ion-social-youtube" style="color: rgb(0,128,255);"></i></a><a href="#"><i
+                        class="icon ion-social-twitter" style="color: rgb(0,128,255);"></i></a></div>
+            <!-- End: Social Icons -->
+            <!-- Start: Links -->
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{{ url_for('index') }}"><strong>Trang chủ</strong></a></li>
+                {% if isadmin==1 %}
+                <li class="list-inline-item"><a data-toggle="modal" href="#registerModal"><strong>Add User</strong></a></li>
+                {% endif %}
+                <li class="list-inline-item" id="tt1"><a href="/logout"><strong>Log Out</strong></a>      
+            </ul>
+            <!-- End: Links -->
+            <!-- Start: Copyright -->
+            <p class="copyright" style="color: rgb(15,183,0);"><br><strong>Bản quyền thuộc
+                    về&nbsp;GiaLongTax Company © 2020</strong></p>
+            <!-- End: Copyright -->
+        </footer>
+    </div>
+<!-- End: Footer Basic -->
+
+<!-- Start: Register -->
+<div class="modal fade" id="registerModal">
+    <div class="modal-dialog">
+        <div class="content-section">
+            <form method="POST" action="">
+                {{ formregs.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Create New Post User</legend>
+                    <div class="form-group">
+                        {{ formregs.username.label(class="form-control-label") }}
+
+                        {% if formregs.username.errors %}
+                            {{ formregs.username(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in formregs.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ formregs.username(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ formregs.email.label(class="form-control-label") }}
+                        {% if formregs.email.errors %}
+                            {{ formregs.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ formregs.email(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ formregs.password.label(class="form-control-label") }}
+                        {% if formregs.password.errors %}
+                            {{ formregs.password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in formregs.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ formregs.password(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ formregs.confirm_password.label(class="form-control-label") }}
+                        {% if formregs.confirm_password.errors %}
+                            {{ formregs.confirm_password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in formregs.confirm_password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ formregs.confirm_password(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ formregs.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End: Register -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static', filename='assets/js/smart-forms.min.js')}}"></script> 
+</body>
+
+</html>

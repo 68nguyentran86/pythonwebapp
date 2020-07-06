@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>GiaLongTax</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/styles.min.css')}}">
+</head>
+
+<body class="text-center">
+    <h1 class="text-center text-info"><strong>THANKS FOR COMING</strong><br></h1><img src="{{url_for('static', filename='imgs/Logo.jpg')}}">
+    <div class="row">
+        <div class="col"><a class="text-center" href="{{ url_for('index') }}"><br>If you want to visit us, click here.<br></a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static', filename='assets/js/smart-forms.min.js')}}"></script>
+</body>
+
+</html>

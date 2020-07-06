@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="{{url_for('static', filename='imgs/favicon.ico')}}" type="image/x-icon">
+    <title>GiaLongTax</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/styles.min.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .mySlides {
+            display: none;
+        }
+        img {
+            vertical-align: middle;
+        }
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 99%;
+            position: relative;
+            margin: auto;
+        }
+        .active {
+            background-color: #717171;
+        }
+    
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 5s;
+            animation-name: fade;
+            animation-duration: 5s;
+        }
+    
+        @-webkit-keyframes fade {
+            from {
+                opacity: .2
+            }
+    
+            to {
+                opacity: 1
+            }
+        }
+        @keyframes fade {
+            from {
+                opacity: .2
+            }
+    
+            to {
+                opacity: 1
+            }
+        }
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+    </style>
+</head>
+
+<body onload="myFunction()" styles="font-family: Arial !important;">
+    <header>
+        <div class="row text-center justify-content-center align-items-center">
+            <div class="col-auto col-xl-2 m-auto"><a href="{{ url_for('index') }}"><img
+                    class="img-fluid d-xl-flex justify-content-xl-center"
+                    src="{{url_for('static', filename='imgs/Logo.png')}}" style="width: 180px;"></a></div>
+            <div class="col align-self-center mx-auto">
+                <div class="row">
+                    <div class="col offset-xl-5 align-self-end mr-auto">
+                        <nav class="navbar navbar-light navbar-expand-md text-center">
+                            <div class="container-fluid"><a class="navbar-link" href="{{ url_for('index') }}"><strong>Trang chủ</strong></a><button
+                                    class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span
+                                        class="sr-only">Toggle navigation</span><span
+                                        class="navbar-toggler-icon"></span></button>
+                                <div class="collapse navbar-collapse text-center" id="navcol-1">
+                                    <ul class="nav navbar-nav">
+                                        <li id='dv' class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Dịch vụ</strong></a></li>
+                                        <li id='dt' class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Đối tác</strong></a></li>
+                                        <li id='tt' class="nav-item" role="presentation"><a class="nav-link" href="#"><strong>Thông tin</strong></a></li>
+                                        <li id='lh' class="nav-item" role="presentation"><a class="nav-link" data-toggle="modal" href="#contactModal"><strong>Liên hệ</strong></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col align-self-center" style="width: 100%;">
+                        <h1 style="color: rgb(28,197,0);font-size: 53px;">An Tâm Về Thuế - Vững Tâm Phát Triển<br></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slideshow-container">
+<!--             <div class="mySlides fade">
+                <img src="assets/img/Header.jpg" style="width:100%;">
+            </div> -->
+            <div class="mySlides fade">
+                <img src="{{url_for('static', filename='imgs/Header1.jpg')}}" style="width:100%;">
+            </div>            
+            <div class="mySlides fade">
+                <img src="{{url_for('static', filename='imgs/Header2.jpg')}}" style="width:100%;">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{url_for('static', filename='imgs/Header3.jpg')}}" style="width:100%;">
+            </div>                         
+        </div>
+
+        </header>
+    <main>
+        <section>
+            <div class="container">
+                <h1><strong>Sứ Mệnh</strong><br></h1>
+                <p style="font-size: 18px;"><strong>“Công ty Dịch vụ & Tư vấn Thuế Gia Long cam kết mang đến cho
+                        Doanh nghiệp dịch vụ tư vấn kế toán thuế chuyên nghiệp và chất lượng cao
+                        nhất, bằng chính sự trân trọng, trách nhiệm và uy tín nhất của
+                        mình.”</strong><br></p>
+            </div>
+            <div class="container">
+                <h1><strong>Tầm Nhìn</strong><br></h1>
+                <p style="font-size: 18px;"><strong>“Trở thành biểu tượng uy tín và niềm tin hàng
+                        đầu Việt Nam về chất lượng dịch vụ kế toán thuế phục vụ cho Doanh nghiệp.”</strong><br></p>
+            </div>
+        </section>
+    </main>
+    <!-- Start: Thong Tin -->
+    <div class="news-list" id='news'>
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro">
+                <h2 class="text-center"><strong>Bài Viết Mới Nhất</strong><br></h2>
+                <p class="text-center">Các thông tin quan trọng và hoạt động của công ty Gia Long được cập nhật thường
+                    xuyên. </p>
+            </div>
+            <!-- End: Intro -->
+            <div style="overflow-y:auto; overflow-x:hidden; height:600px;">
+                <!-- Start: Articles -->
+                <div class="row articles">
+                    {% for post in post_news%}
+                    <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="{{ url_for('static', filename='imgs/' + post.image_file) }}" onclick="onClick(this)"></a>
+                        <h3 class="name">{{ post.title }}</h3>
+                        <p class="description">{{ post.content }}</p>
+                        <p class="author"><strong>{{ post.author.fullname }}</strong>&nbsp;{{ post.date_posted.strftime('%d-%m-%Y') }}
+                        {% if post.author == current_user %}
+                            <a href="#" data-toggle="modal" data-target="#updatepostModal{{ post.id }}" role="dialog"><i class="fa fa-edit"></i></a></p>
+                            <!-- Start: Update Post -->
+                            <div class="modal fade" id="updatepostModal{{ post.id }}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <main class="page hire-me-page">
+                                            <section class="portfolio-block hire-me">
+                                                <div class="container">
+                                                    <div class="heading">
+                                                        <h1 class="text-center text-primary"><strong>Cập nhật tin</strong></h1>
+                                                        <h4 class="text-center text-success"><strong>Người đăng: {{ current_user.fullname }}</strong></h4>
+                                                    </div>
+                                                    <form method="post" action="{{ url_for('updatepost', post_id=post.id) }}" enctype=multipart/form-data>
+                                                        {{ formpost.hidden_tag() }}
+                                                        <div class="form-group text-center">
+                                                            {% set f = formpost.posttyle.process_data(post.posttyle) %}
+                                                            {{ formpost.posttyle(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            {% set f = formpost.title.process_data(post.title) %}
+                                                            {{ formpost.title(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            {% set f = formpost.content.process_data(post.content) %}
+                                                            {{ formpost.content(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group"><input type="file" accept="image/*" name="imagefile" value='{{post.image_file}}'>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+                                                        </div>
+                                                        <div class="form-group text-center">
+                                                            {{ formpost.submit(class="btn btn-primary") }}
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </section>
+                                        </main>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End: Update Post -->
+                        {% endif %}
+                    </div>
+                        {% if post.id%3==0 %}
+                            <br></br>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End: Articles -->
+            </div>
+        </div>
+    </div>
+    <!-- End: Thong Tin -->
+    <!-- Start: Dich Vu -->
+    <div class="dichvu-list" id='dichvu'>
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro">
+                <h2 class="text-center"><strong>Dịch vụ Tư vấn</strong></h2>
+                <p class="text-center">Để vững tâm trên con đường phát triển và đạt được các mục tiêu then chốt của
+                    Doanh nghiệp trong bối cảnh thế giới vận động không ngừng như hiện nay thì&nbsp;lĩnh vực
+                    thuế&nbsp;là một yếu tố rất quan trọng mà Doanh nghiệp cần vững vàng.
+                    Hãy để chúng tôi gánh vác thay, giúp các bạn an tâm và tự tin phát triển doanh nghiệp.<br></p>
+            </div>
+            <!-- End: Intro -->
+            <div style="overflow-y:auto; overflow-x:hidden; height:600px;">
+                <!-- Start: Articles -->
+                <div class="row articles">
+                    {% for post in post_services%}
+                    <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="{{ url_for('static', filename='imgs/' + post.image_file) }}" onclick="onClick(this)"></a>
+                        <h3 class="name">{{ post.title }}</h3>
+                        <p class="description">{{ post.content }}</p>
+                        <p class="author"><strong>{{ post.author.fullname }}</strong>&nbsp;{{ post.date_posted.strftime('%d-%m-%Y') }}
+                        {% if post.author == current_user %}
+                            <a href="#" data-toggle="modal" data-target="#updatepostModal{{ post.id }}" role="dialog"><i class="fa fa-edit"></i></a></p>
+                            <!-- Start: Update Post -->
+                            <div class="modal fade" id="updatepostModal{{ post.id }}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <main class="page hire-me-page">
+                                            <section class="portfolio-block hire-me">
+                                                <div class="container">
+                                                    <div class="heading">
+                                                        <h1 class="text-center text-primary"><strong>Cập nhật tin</strong></h1>
+                                                        <h4 class="text-center text-success"><strong>Người đăng: {{ current_user.fullname }}</strong></h4>
+                                                    </div>
+                                                    <form method="post" action="{{ url_for('updatepost', post_id=post.id) }}" enctype=multipart/form-data>
+                                                        {{ formpost.hidden_tag() }}
+                                                        <div class="form-group text-center">
+                                                            {% set f = formpost.posttyle.process_data(post.posttyle) %}
+                                                            {{ formpost.posttyle(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            {% set f = formpost.title.process_data(post.title) %}
+                                                            {{ formpost.title(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            {% set f = formpost.content.process_data(post.content) %}
+                                                            {{ formpost.content(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group"><input type="file" accept="image/*" name="imagefile" value='{{post.image_file}}'>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+                                                        </div>
+                                                        <div class="form-group text-center">
+                                                            {{ formpost.submit(class="btn btn-primary") }}
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </section>
+                                        </main>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End: Update Post -->
+                        {% endif %}
+                    </div>
+                        {% if post.id%3==0 %}
+                            <br></br>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End: Articles -->
+        </div>
+        </div>
+    </div>
+    <!-- End: Dich Vu -->
+    <!-- Start: Client -->
+    <div class="doitac-list" id='doitac'>
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro">
+                <h2 class="text-center"><strong>Đối tác &amp; Khách hàng</strong></h2>
+                <p class="text-center">Những Đối tác &amp; Khách hàng quan trọng và thân thiết của Gia Long<br></p>
+            </div>
+            <!-- End: Intro -->
+            <div style="overflow-y:auto; overflow-x:hidden; height:600px;">
+                <!-- Start: Articles -->
+                <div class="row articles">
+                    {% for post in post_customers%}
+                    <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="{{ url_for('static', filename='imgs/' + post.image_file) }}" onclick="onClick(this)"></a>
+                        <h3 class="name">{{ post.title }}</h3>
+                        <p class="description">{{ post.content }}</p>
+                        <p class="author"><strong>{{ post.author.fullname }}</strong>&nbsp;{{ post.date_posted.strftime('%d-%m-%Y') }}
+                        {% if post.author == current_user %}
+                            <a href="#" data-toggle="modal" data-target="#updatepostModal{{ post.id }}" role="dialog"><i class="fa fa-edit"></i></a></p>
+                            <!-- Start: Update Post -->
+                            <div class="modal fade" id="updatepostModal{{ post.id }}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <main class="page hire-me-page">
+                                            <section class="portfolio-block hire-me">
+                                                <div class="container">
+                                                    <div class="heading">
+                                                        <h1 class="text-center text-primary"><strong>Cập nhật tin</strong></h1>
+                                                        <h4 class="text-center text-success"><strong>Người đăng: {{ current_user.fullname }}</strong></h4>
+                                                    </div>
+                                                    <form method="post" action="{{ url_for('updatepost', post_id=post.id) }}" enctype=multipart/form-data>
+                                                        {{ formpost.hidden_tag() }}
+                                                        <div class="form-group text-center">
+                                                            {% set f = formpost.posttyle.process_data(post.posttyle) %}
+                                                            {{ formpost.posttyle(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            {% set f = formpost.title.process_data(post.title) %}
+                                                            {{ formpost.title(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            {% set f = formpost.content.process_data(post.content) %}
+                                                            {{ formpost.content(class="form-control form-control-lg") }}
+                                                        </div>
+                                                        <div class="form-group"><input type="file" accept="image/*" name="imagefile" value='{{post.image_file}}'>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+                                                        </div>
+                                                        <div class="form-group text-center">
+                                                            {{ formpost.submit(class="btn btn-primary") }}
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </section>
+                                        </main>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End: Update Post -->
+                        {% endif %}
+                    </div>
+                        {% if post.id%3==0 %}
+                            <br></br>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End: Articles -->
+        </div>
+        </div>
+    </div>
+    <!-- End: Client -->
+
+    <!-- Start: Brands -->
+    <div class="brands"><a href="#"><img src="{{url_for('static', filename='imgs/Logo.jpg')}}" alt="Kế Toán Thuế Gia Long" width="80" height="80">
+            <img src="{{url_for('static', filename='imgs/BaoNhan.png')}}" alt="Thiết bị điện 3T" width="70" height="70"><img src="{{url_for('static', filename='imgs/NY.png')}}"
+                height="70"><img src="{{url_for('static', filename='imgs/longphung.png')}}" width="80" height="80"><img src="{{url_for('static', filename='imgs/bnm.png')}}"
+                height="70"><img src="{{url_for('static', filename='imgs/loctin.png')}}" width="80" height="80"><img src="{{url_for('static', filename='imgs/3T.png')}}"
+                width="70" height="70"></a></div>
+    <!-- End: Brands -->
+    <section>
+        <div class="container">
+            <h1 style="background-color: #ffffff;color: rgb(250,50,254);font-size: 30px;">Địa chỉ</h1>
+            <p>Số 09, đường 51-CL, phường Cát lái, Quận 2, Tp. HCM<br>Email: <a
+                    href="mailto:thaottm@gialongtax.com">thaottm@gialongtax.com</a><br><a href="tel:0916875976">Mobile: 0916 87 59 76</a><br></p>
+            <iframe allowfullscreen frameborder="0" width="100%" height="300"
+                src="https://maps.google.com/maps?q=10.768974153673733%2C%20106.79199832526308&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                width="100%" height="300"></iframe>
+        </div>
+    </section>
+    <!-- Start: Footer Basic -->
+    <div class="footer-basic">
+        <footer>
+            <!-- Start: Social Icons -->
+            <div class="social"><a href="https://www.facebook.com/ketoanthuegialong"><i class="icon ion-social-facebook"
+                        style="color: rgb(0,128,255);"></i></a><a href="https://gialongtax.business.site/"><i
+                        class="icon ion-social-google" style="color: rgb(0,128,255);"></i></a>
+                <a href="#"><i class="icon ion-social-youtube" style="color: rgb(0,128,255);"></i></a><a href="#"><i
+                        class="icon ion-social-twitter" style="color: rgb(0,128,255);"></i></a></div>
+            <!-- End: Social Icons -->
+            <!-- Start: Links -->
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{{ url_for('index') }}"><strong>Trang
+                            chủ</strong></a></li>
+                <li class="list-inline-item" id="dv1"><a href="#"><strong>Dịch vụ</strong></a>
+                </li>
+                <li class="list-inline-item" id="dt1"><a href="#"><strong>Đối tác</strong></a>
+                </li>
+                <li class="list-inline-item" id="tt1"><a href="#"><strong>Thông tin</strong></a>
+                </li>
+                <li class="list-inline-item"><a data-toggle="modal"  href="#contactModal"><strong>Liên hệ</strong></a></li>
+                {% if current_user.is_authenticated %}
+                {% if current_user.isAdmin %}
+                <li class="list-inline-item"><a data-toggle="modal" href="#registerModal"><strong>Add User</strong></a></li>
+                {% endif %}
+                <li class="list-inline-item"><a data-toggle="modal" href="#newspostModal"><strong>News Post</strong></a></li>
+                <li class="list-inline-item" id="tt1"><a href="/logout"><strong>Log Out</strong></a>
+                {% else %}
+                <li class="list-inline-item"><a data-toggle="modal" href="#adminModal"><strong>Log in</strong></a></li>
+                {% endif %}
+            </ul>
+            <!-- End: Links -->
+            <!-- Start: Copyright -->
+            <p class="copyright" style="color: rgb(15,183,0);"><br><strong>Bản quyền thuộc
+                    về&nbsp;GiaLongTax Company © 2020</strong></p>
+            <!-- End: Copyright -->
+        </footer>
+    </div>
+<!-- End: Footer Basic -->
+
+<!--Show Image-->
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+        <img id="img01" style="width:100%">
+    </div>
+</div>
+<!--ENd show Image-->
+
+<!-- The Admin Modal -->
+<div class="modal fade" id="adminModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <main class="page hire-me-page">
+                <section class="portfolio-block hire-me">
+                    <div class="container">
+                        <div class="heading">
+                            <h1 class="text-center text-primary"><strong>Admin Login</strong></h1>
+                        </div>
+                        <form method="POST" action="/login" id="loginform">
+                            <!-- {{ formlogs.hidden_tag() }} -->
+                            {{ formlogs.hidden_tag() }}
+                            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+                            <!-- <div class="form-group"><input class="form-control" type="email" name="email" required="" placeholder="Email" maxlength="30" minlength="6"></div> -->
+                            <div class="form-group">
+                                {{ formlogs.email.label(class="form-control-label") }}
+                                {% if formlogs.email.errors %}
+                                    {{ formlogs.email(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in formlogs.email.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formlogs.email(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <!-- <div class="form-group"><input class="form-control" type="password" name="password" required="" placeholder="Password" maxlength="50" minlength="10"></div> -->
+                            <div class="form-group">
+                                {{ formlogs.password.label(class="form-control-label") }}
+                                {% if formlogs.password.errors %}
+                                    {{ formlogs.password(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in formlogs.password.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ formlogs.password(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <div class="col-md-6 col-xl-3 offset-xl-5 button">{{formlogs.submit(class="btn btn-primary")}}</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>
+<!-- End: Admin Modal -->
+
+<!-- The Contact Modal -->
+<div class="modal fade" id="contactModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <main class="page hire-me-page">
+                <section class="portfolio-block hire-me">
+                    <div class="container">
+                        <div class="heading">
+                            <h1 class="text-center text-primary"><strong>Liên Hệ</strong></h1>
+                        </div>
+                        <form method="POST" action="/contact" name="Contact">
+                            {{ formconts.hidden_tag() }}
+                            <div class="form-group"><label for="email">Họ tên</label>
+                                {{ formconts.username(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="form-group"><label for="email">Email</label>
+                                {{ formconts.email(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="form-group"><label for="subject">Subject</label>
+                                {{ formconts.subject(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="form-group"><label for="message">Nội dung</label>
+                                {{ formconts.content(class="form-control form-control-lg") }}
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+                            </div>
+                            <div class="form-group text-center">
+                                <div class="form-row">
+                                    <div class="col-md-6 col-xl-3 offset-xl-5 button">{{formconts.submit(class="btn btn-primary")}}</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
+            <!-- Start: Brands -->
+            <div class="brands"><a href="#"><img src="{{url_for('static', filename='imgs/Logo.jpg')}}" width="80" height="80"> <img
+                        src="{{url_for('static', filename='imgs/BaoNhan.png')}}" width="70" height="70"><img src="{{url_for('static', filename='imgs/NY.png')}}" width="70"
+                        height="70"><img src="{{url_for('static', filename='imgs/longphung.png')}}" width="70" height="70"><img
+                        src="{{url_for('static', filename='imgs/bnm.png')}}" width="90" height="70"><img src="{{url_for('static', filename='imgs/loctin.png')}}" width="80"
+                        height="80"><img src="{{url_for('static', filename='imgs/3T.png')}}" width="70" height="70"></a></div>
+            <!-- End: Brands -->
+        </div>
+    </div>
+</div>
+<!-- End: Contact Modal -->
+
+<!-- Start: Register -->
+<div class="modal fade" id="registerModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <main class="page hire-me-page">
+                <section class="portfolio-block hire-me">
+                    <div class="container">
+                        <div class="heading">
+                            <h1 class="text-center text-primary"><strong>Create New Post User</strong></h1>
+                        </div>            
+                        <form method="POST" action="register">
+                            {{ formregs.hidden_tag() }}
+                            <fieldset class="form-group">
+                                <div class="form-group">
+                                    {{ formregs.fullname.label(class="form-control-label") }}
+                                    {% if formregs.fullname.errors %}
+                                        {{ formregs.fullname(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in formregs.fullname.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ formregs.fullname(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ formregs.email.label(class="form-control-label") }}
+                                    {% if formregs.email.errors %}
+                                        {{ formregs.email(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.email.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ formregs.email(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ formregs.password.label(class="form-control-label") }}
+                                    {% if formregs.password.errors %}
+                                        {{ formregs.password(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in formregs.password.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ formregs.password(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                                <div class="form-group">
+                                    {{ formregs.confirm_password.label(class="form-control-label") }}
+                                    {% if formregs.confirm_password.errors %}
+                                        {{ formregs.confirm_password(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in formregs.confirm_password.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ formregs.confirm_password(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+                            <div class="form-group text-center">
+                                {{ formregs.submit(class="btn btn-primary") }}
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>
+<!-- End: Register -->
+
+<!-- Start: News Post -->
+<div class="modal fade" id="newspostModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <main class="page hire-me-page">
+                <section class="portfolio-block hire-me">
+                    <div class="container">
+                        <div class="heading">
+                            <h1 class="text-center text-primary"><strong>Đăng tin mới</strong></h1>
+                            <h4 class="text-center text-success"><strong>Người đăng: {{ current_user.fullname }}</strong></h4>
+                        </div>
+                        <form method="post" action="/newspost" enctype=multipart/form-data>
+                            {{ formpost.hidden_tag() }}
+                            <div class="form-group text-center">
+                                {{ formpost.posttyle(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="form-group">
+                                {{ formpost.title(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="form-group">
+                                {{ formpost.content(class="form-control form-control-lg") }}
+                            </div>
+                            <div class="form-group"><input type="file" accept="image/*" name="imagefile" required="">
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div>
+                            </div>
+                            <div class="form-group text-center">
+                                {{ formpost.submit(class="btn btn-primary") }}
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>
+<!-- End: News Post -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="{{url_for('static', filename='assets/js/smart-forms.min.js')}}"></script>  
+<script>
+    var slideIndex = 0;
+    showSlides();
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+    }
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+    }
+    function myFunction() {
+        $("#news").show();
+        $("#dichvu").hide();
+        $("#doitac").hide();
+    }        
+    $(document).ready(function () {
+        $("#tt").click(function () {
+            $("#news").show();
+            $("#dichvu").hide();
+            $("#doitac").hide();
+        });            
+        $("#dv").click(function () {
+            $("#news").hide();
+            $("#dichvu").show();
+            $("#doitac").hide();
+        });
+        $("#dt").click(function () {
+            $("#news").hide();
+            $("#dichvu").hide();
+            $("#doitac").show();
+        });
+        $("#tt1").click(function () {
+            $("#news").show();
+            $("#dichvu").hide();
+            $("#doitac").hide();
+        });            
+        $("#dv1").click(function () {
+            $("#news").hide();
+            $("#dichvu").show();
+            $("#doitac").hide();
+        });
+        $("#dt1").click(function () {
+            $("#news").hide();
+            $("#dichvu").hide();
+            $("#doitac").show();
+        });            
+    });
+    $(function () {
+        $('a#updatepost').bind('click', function () {
+            $.getJSON($SCRIPT_ROOT + '/getpost', {
+                a: $('input[name="a"]').val(),
+                b: $('input[name="b"]').val()
+            }, function (data) {
+                $("#result").text(data.result);
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

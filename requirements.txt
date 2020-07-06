@@ -1,0 +1,17 @@
+bcrypt
+email-validator
+Flask
+Flask-Bcrypt
+Flask-GoogleRecaptcha
+Flask-JSON
+Flask-Login
+Flask-Mail
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-WTF
+PyMsgBox
+requests
+SQLAlchemy
+virtualenv
+Werkzeug
+WTForms
