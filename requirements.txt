@@ -15,3 +15,4 @@ SQLAlchemy
 virtualenv
 Werkzeug
 WTForms
+gunicorn
